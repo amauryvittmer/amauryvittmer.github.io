@@ -1,17 +1,18 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <!--
   ╔══════════════════════════════╗
-  ║        LIENS À MODIFIER      ║
+  ║        LINKS — EDIT HERE     ║
   ╚══════════════════════════════╝
-  Modifier les valeurs ci-dessous pour mettre à jour les liens de la sidebar.
+  Update the values below to change the sidebar links.
 -->
 <script>
   const LINKS = {
     email:    "mailto:amaury@example.com",
     linkedin: "https://linkedin.com/in/amauryvittmer",
     github:   "https://github.com/amauryvittmer",
-    projets:  "#projets",
+    cv:       "/cv.pdf",
+    projects: "#projects",
   };
 </script>
 <head>
@@ -170,18 +171,19 @@
 
     <main>
       <section>
-        <div class="section-label">L'intégrité passe par la cognition</div>
+        <div class="section-label">Integrity starts with cognition</div>
 
-        <p>60 millions de cerveaux brûlent à petit feu. C'est le nombre de personnes atteintes de la maladie d'Alzheimer dans le monde. Elles seront 80 millions en 2030. Cela me trouble beaucoup. Que faire&nbsp;?</p>
+        <p>60 million brains are slowly burning out. That is the number of people living with Alzheimer's disease worldwide. There will be 80 million by 2030. This troubles me deeply.</p>
+        <p>What is to be done?</p>
 
-        <p>Conserver sa conscience ne devrait pas être un privilège.</p>
+        <p>Preserving one's mind should not be a privilege.</p>
 
-        <p>Mon souhait est de rendre l'intégrité cognitive aux personnes atteintes de maladie neurodégénérative, et plus particulièrement d'Alzheimer. Cela, en trois chapitres&nbsp;:</p>
+        <p>My goal is to restore cognitive integrity to people affected by neurodegenerative disease, and Alzheimer's in particular. This, through three chapters:</p>
 
         <ul class="bullets">
-          <li>D'abord, permettre à chacun de suivre et comprendre l'évolution de ses capacités cognitives, sans condition d'accès.</li>
-          <li>Ensuite, doter chaque individu des moyens d'apaiser les irrégularités de ces capacités, et d'en permettre, lorsque cela est possible, l'élévation progressive.</li>
-          <li>Enfin, rendre ces moyens évidents en alignant l'intérêt des individus et celui des détenteurs de capitaux, afin d'en favoriser la diffusion.</li>
+          <li>First, enable everyone to track and understand the evolution of their cognitive abilities, with no barriers to access.</li>
+          <li>Then, equip each individual with the means to address irregularities in those abilities, and where possible, allow for their progressive improvement.</li>
+          <li>Finally, make these means universally available by aligning the interests of individuals with those of capital holders, so as to foster broad adoption.</li>
         </ul>
       </section>
     </main>
@@ -191,13 +193,11 @@
   <script>
     const nav = document.getElementById('nav');
     nav.innerHTML = `
-      <a href="${LINKS.email}">email</a>
+      <a href="${LINKS.email}">Email</a>
       <a href="${LINKS.linkedin}" target="_blank">LinkedIn</a>
-      <div class="nav-section">
-        <div class="nav-label">Code</div>
-        <a href="${LINKS.github}" target="_blank" class="accent">Github</a>
-        <a href="${LINKS.projets}" class="accent" style="margin-top:4px">Projets</a>
-      </div>
+      <a href="${LINKS.github}" target="_blank">Github</a>
+      <a href="${LINKS.cv}" target="_blank" class="accent">CV</a>
+      <a href="${LINKS.projects}" class="accent">Projects</a>
     `;
   </script>
 
