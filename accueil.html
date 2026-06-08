@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="fr">
+<!--
+  ╔══════════════════════════════╗
+  ║        LIENS À MODIFIER      ║
+  ╚══════════════════════════════╝
+  Modifier les valeurs ci-dessous pour mettre à jour les liens de la sidebar.
+-->
+<script>
+  const LINKS = {
+    email:    "mailto:amaury@example.com",
+    linkedin: "https://linkedin.com/in/amauryvittmer",
+    github:   "https://github.com/amauryvittmer",
+    projets:  "#projets",
+  };
+</script>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Amaury Vittmer</title>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&family=DM+Sans:wght@300;400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink: #1a1a18;
+      --muted: #7a7a72;
+      --accent: #5c4fc4;
+      --bg: #f7f5f0;
+      --rule: #d8d4cc;
+      --col-gap: 64px;
+      --sidebar: 140px;
+    }
+
+    html { font-size: 16px; }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      min-height: 100vh;
+      padding: 0 48px;
+      max-width: 1080px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: var(--sidebar) 1fr;
+      gap: 0 var(--col-gap);
+    }
+
+    header {
+      padding: 56px 0 40px;
+      margin-bottom: 56px;
+      opacity: 0;
+      animation: fadeUp .7s ease forwards;
+    }
+
+    header .spacer {}
+
+    h1 {
+      font-family: 'EB Garamond', serif;
+      font-weight: 400;
+      font-size: clamp(2rem, 4vw, 3rem);
+      letter-spacing: -.02em;
+      line-height: 1;
+    }
+
+    aside {
+      padding-top: 4px;
+      opacity: 0;
+      animation: fadeUp .7s .15s ease forwards;
+    }
+
+    nav { display: flex; flex-direction: column; gap: 6px; }
+
+    nav a {
+      font-size: .8rem;
+      color: var(--muted);
+      text-decoration: none;
+      letter-spacing: .03em;
+      transition: color .2s;
+    }
+    nav a:hover { color: var(--ink); }
+    nav a.accent { color: var(--accent); }
+
+    .nav-section { margin-top: 20px; }
+    .nav-label {
+      font-size: .65rem;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      color: var(--rule);
+      margin-bottom: 8px;
+    }
+
+    main {
+      opacity: 0;
+      animation: fadeUp .7s .25s ease forwards;
+    }
+
+    section { padding-bottom: 56px; max-width: 560px; }
+
+    .section-label {
+      font-size: .65rem;
+      text-transform: uppercase;
+      letter-spacing: .14em;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-family: 'EB Garamond', serif;
+      font-size: 1.05rem;
+      line-height: 1.75;
+      color: var(--ink);
+      text-align: justify;
+      hyphens: auto;
+      margin-bottom: 1.1em;
+    }
+
+    p:last-child { margin-bottom: 0; }
+
+    .bullets { list-style: none; margin-top: 1.1em; }
+
+    .bullets li {
+      font-family: 'EB Garamond', serif;
+      font-size: 1.05rem;
+      line-height: 1.75;
+      color: var(--ink);
+      padding-left: 1.1em;
+      position: relative;
+      margin-bottom: .6em;
+      text-align: justify;
+      hyphens: auto;
+    }
+
+    .bullets li::before {
+      content: '*';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(14px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 700px) {
+      body { padding: 0 24px; }
+      .grid { grid-template-columns: 1fr; }
+      aside { display: flex; flex-direction: row; gap: 32px; margin-bottom: 32px; }
+      header .spacer { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="grid">
+    <div class="spacer"></div>
+    <h1>Amaury Vittmer</h1>
+  </header>
+
+  <div class="grid">
+
+    <aside>
+      <nav id="nav"></nav>
+    </aside>
+
+    <main>
+      <section>
+        <div class="section-label">L'intégrité passe par la cognition</div>
+
+        <p>60 millions de cerveaux brûlent à petit feu. C'est le nombre de personnes atteintes de la maladie d'Alzheimer dans le monde. Elles seront 80 millions en 2030. Cela me trouble beaucoup. Que faire&nbsp;?</p>
+
+        <p>Conserver sa conscience ne devrait pas être un privilège.</p>
+
+        <p>Mon souhait est de rendre l'intégrité cognitive aux personnes atteintes de maladie neurodégénérative, et plus particulièrement d'Alzheimer. Cela, en trois chapitres&nbsp;:</p>
+
+        <ul class="bullets">
+          <li>D'abord, permettre à chacun de suivre et comprendre l'évolution de ses capacités cognitives, sans condition d'accès.</li>
+          <li>Ensuite, doter chaque individu des moyens d'apaiser les irrégularités de ces capacités, et d'en permettre, lorsque cela est possible, l'élévation progressive.</li>
+          <li>Enfin, rendre ces moyens évidents en alignant l'intérêt des individus et celui des détenteurs de capitaux, afin d'en favoriser la diffusion.</li>
+        </ul>
+      </section>
+    </main>
+
+  </div>
+
+  <script>
+    const nav = document.getElementById('nav');
+    nav.innerHTML = `
+      <a href="${LINKS.email}">email</a>
+      <a href="${LINKS.linkedin}" target="_blank">LinkedIn</a>
+      <div class="nav-section">
+        <div class="nav-label">Code</div>
+        <a href="${LINKS.github}" target="_blank" class="accent">Github</a>
+        <a href="${LINKS.projets}" class="accent" style="margin-top:4px">Projets</a>
+      </div>
+    `;
+  </script>
+
+</body>
+</html>
