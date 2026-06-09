@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CV — Amaury Vittmer</title>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink: #1a1a18;
+      --muted: #7a7a72;
+      --accent: #5c4fc4;
+      --bg: #f7f5f0;
+      --rule: #d8d4cc;
+      --col-gap: 64px;
+      --sidebar: 140px;
+    }
+
+    html { font-size: 16px; }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      min-height: 100vh;
+      padding: 0 48px 80px;
+      max-width: 1080px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: var(--sidebar) 1fr;
+      gap: 0 var(--col-gap);
+    }
+
+    header {
+      padding: 56px 0 40px;
+      margin-bottom: 56px;
+      opacity: 0;
+      animation: fadeUp .7s ease forwards;
+    }
+
+    .header-meta { display: flex; flex-direction: column; gap: 8px; }
+
+    .back-link {
+      font-size: .75rem;
+      color: var(--muted);
+      text-decoration: none;
+      letter-spacing: .04em;
+      transition: color .2s;
+      display: inline-block;
+      margin-bottom: 12px;
+    }
+    .back-link:hover { color: var(--ink); }
+    .back-link::before { content: '← '; }
+
+    h1 {
+      font-family: 'EB Garamond', serif;
+      font-weight: 400;
+      font-size: clamp(2rem, 4vw, 3rem);
+      letter-spacing: -.02em;
+      line-height: 1;
+    }
+
+    .title-role {
+      font-family: 'EB Garamond', serif;
+      font-style: italic;
+      font-size: 1.05rem;
+      color: var(--muted);
+      margin-top: 6px;
+    }
+
+    aside {
+      padding-top: 4px;
+      opacity: 0;
+      animation: fadeUp .7s .15s ease forwards;
+    }
+
+    nav { display: flex; flex-direction: column; gap: 6px; }
+
+    nav a {
+      font-size: .8rem;
+      color: var(--muted);
+      text-decoration: none;
+      letter-spacing: .03em;
+      transition: color .2s;
+    }
+    nav a:hover { color: var(--ink); }
+    nav a.accent { color: var(--accent); }
+
+    .nav-divider {
+      width: 24px;
+      height: 1px;
+      background: var(--rule);
+      margin: 10px 0;
+    }
+
+    .cv-nav {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      margin-top: 28px;
+    }
+
+    .cv-nav-label {
+      font-size: .65rem;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      color: var(--rule);
+      margin-bottom: 6px;
+    }
+
+    .cv-nav a {
+      font-size: .75rem;
+      color: var(--muted);
+      text-decoration: none;
+      letter-spacing: .03em;
+      transition: color .2s;
+    }
+    .cv-nav a:hover { color: var(--ink); }
+
+    main {
+      opacity: 0;
+      animation: fadeUp .7s .25s ease forwards;
+    }
+
+    .cv-section { padding-bottom: 52px; }
+
+    .section-label {
+      font-size: .65rem;
+      text-transform: uppercase;
+      letter-spacing: .14em;
+      color: var(--muted);
+      margin-bottom: 24px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    /* BIO */
+    .bio p {
+      font-family: 'EB Garamond', serif;
+      font-size: 1.05rem;
+      line-height: 1.75;
+      color: var(--ink);
+      max-width: 560px;
+      margin-bottom: 1em;
+    }
+    .bio p:last-child { margin-bottom: 0; }
+
+    /* ENTRIES */
+    .entry {
+      display: grid;
+      grid-template-columns: 90px 1fr;
+      gap: 0 28px;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--rule);
+    }
+    .entry:first-of-type { border-top: 1px solid var(--rule); }
+
+    .entry-year {
+      font-size: .75rem;
+      color: var(--muted);
+      font-variant-numeric: tabular-nums;
+      padding-top: 3px;
+      letter-spacing: .02em;
+      line-height: 1.5;
+    }
+
+    .entry-title {
+      font-family: 'EB Garamond', serif;
+      font-size: 1.05rem;
+      font-weight: 500;
+      letter-spacing: -.01em;
+      margin-bottom: 2px;
+    }
+
+    .entry-place {
+      font-family: 'EB Garamond', serif;
+      font-style: italic;
+      font-size: .95rem;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    .entry-desc {
+      font-family: 'EB Garamond', serif;
+      font-size: .95rem;
+      line-height: 1.65;
+      color: var(--muted);
+      max-width: 480px;
+    }
+
+    /* SKILLS — single table */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0;
+    }
+
+    .skill-row {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--rule);
+    }
+    .skill-row:nth-child(odd) { padding-right: 32px; }
+    .skill-row:first-child,
+    .skill-row:nth-child(2) { border-top: 1px solid var(--rule); }
+
+    .skill-name {
+      font-family: 'EB Garamond', serif;
+      font-size: 1rem;
+      flex: 1;
+    }
+
+    .skill-level {
+      font-size: .65rem;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    /* AWARDS */
+    .award {
+      display: grid;
+      grid-template-columns: 90px 1fr;
+      gap: 0 28px;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--rule);
+    }
+    .award:first-of-type { border-top: 1px solid var(--rule); }
+
+    .award-year { font-size: .75rem; color: var(--muted); padding-top: 3px; }
+
+    .award-title {
+      font-family: 'EB Garamond', serif;
+      font-size: 1rem;
+      margin-bottom: 2px;
+    }
+
+    .award-body {
+      font-family: 'EB Garamond', serif;
+      font-size: .9rem;
+      font-style: italic;
+      color: var(--muted);
+    }
+
+    /* CONTACT */
+    .contact-strip {
+      display: flex;
+      gap: 28px;
+      flex-wrap: wrap;
+      padding-top: 8px;
+    }
+
+    .contact-item {
+      font-size: .8rem;
+      color: var(--muted);
+      letter-spacing: .03em;
+    }
+
+    .contact-item a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .contact-item a:hover { text-decoration: underline; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(14px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 700px) {
+      body { padding: 0 24px 60px; }
+      .grid { grid-template-columns: 1fr; }
+      aside { margin-bottom: 32px; }
+      .nav-divider { display: none; }
+      .entry { grid-template-columns: 60px 1fr; gap: 0 16px; }
+      .award { grid-template-columns: 60px 1fr; gap: 0 16px; }
+      .skills-grid { grid-template-columns: 1fr; }
+      .skill-row:nth-child(2) { border-top: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="grid">
+    <div></div>
+    <div class="header-meta">
+      <a href="accueil.html" class="back-link">Amaury Vittmer</a>
+      <h1>Curriculum Vitae</h1>
+      <div class="title-role">Linguistique Computationnelle &amp; Management de l'Innovation</div>
+    </div>
+  </header>
+
+  <div class="grid">
+
+    <aside>
+      <nav>
+        <a href="mailto:amaury.vittmer@gmail.com">Email</a>
+        <a href="https://www.linkedin.com/in/amauryvittmer/" target="_blank">LinkedIn</a>
+        <a href="https://github.com/amauryvittmer" target="_blank">Github</a>
+        <div class="nav-divider"></div>
+        <a href="projects.html" class="accent">Projects</a>
+        <a href="cv.html" class="accent">CV</a>
+      </nav>
+
+      <div class="cv-nav">
+        <div class="cv-nav-label">Jump to</div>
+        <a href="#statement">Statement</a>
+        <a href="#education">Formation</a>
+        <a href="#skills">Compétences</a>
+        <a href="#awards">Distinctions</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </aside>
+
+    <main>
+
+      <!-- STATEMENT -->
+      <section class="cv-section bio" id="statement">
+        <div class="section-label">Statement</div>
+        <p>My goal is to restore cognitive integrity to people affected by neurodegenerative disease, and Alzheimer's in particular.</p>
+        <p>What interests me is how to capture cognitive signal non-invasively and translate it into clinically useful information.</p>
+      </section>
+
+      <!-- FORMATION -->
+      <section class="cv-section" id="education">
+        <div class="section-label">Formation</div>
+
+        <div class="entry">
+          <div class="entry-year">2026<br>2028</div>
+          <div class="entry-body">
+            <div class="entry-title">M.Sc. in Computational Linguistics and Artficial Intelligence</div>
+            <div class="entry-place">INALCO · Paris III Sorbonne Nouvelle · Paris X Nanterre</div>
+            <div class="entry-desc">Specialisation in Research &amp;Development.<em></div>
+          </div>
+        </div>
+
+        <div class="entry">
+          <div class="entry-year">2025<br>2028</div>
+          <div class="entry-body">
+            <div class="entry-title">M.Sc. in Management of Innovation and Technology</div>
+            <div class="entry-place">Paris 1 Panthéon-Sorbonne University</div>
+            <div class="entry-desc">Dissertation: <em>Social Dynamics of Emotional Dependency on generative Artificial Intelligence.</em></div>
+			<div class="entry-desc">Advised by Pr. Steyer.</div>
+          </div>
+        </div>
+
+        <div class="entry">
+          <div class="entry-year">2023<br>2026</div>
+          <div class="entry-body">
+            <div class="entry-title">B.A. in Modern Literature and Linguistics</div>
+            <div class="entry-place">Paris IV Sorbonne University</div>
+            <div class="entry-desc">Dissertation: <em>Early Detection of Alzheimer's Disease via NLP.</em> Advised by Pr. Lejeune.</div>
+          </div>
+        </div>
+
+        <div class="entry">
+          <div class="entry-year">2022<br>2025</div>
+          <div class="entry-body">
+            <div class="entry-title">B.S. in Business Economics</div>
+            <div class="entry-place">Université Paris 1 Panthéon-Sorbonne · Johannesburg, RSA · Québec, Canada</div>
+            <div class="entry-desc">Major in Economics and Strategy.</div>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- COMPÉTENCES -->
+      <section class="cv-section" id="skills">
+        <div class="section-label">Compétences</div>
+        <div class="skills-grid">
+          <div class="skill-row"><span class="skill-name">Français</span><span class="skill-level">Langue maternelle</span></div>
+          <div class="skill-row"><span class="skill-name">Anglais</span><span class="skill-level">Fluent</span></div>
+          <div class="skill-row"><span class="skill-name">Python / R</span><span class="skill-level">Advanced</span></div>
+          <div class="skill-row"><span class="skill-name">Deep Learning · PyTorch</span><span class="skill-level">Advanced</span></div>
+          <div class="skill-row"><span class="skill-name">RAG &amp; Knowledge Graphs</span><span class="skill-level">Intermediate</span></div>
+          <div class="skill-row"><span class="skill-name">ETL Pipelines</span><span class="skill-level">Intermediate</span></div>
+          <div class="skill-row"><span class="skill-name">OpenSearch · Neo4j · Gutenberg</span><span class="skill-level">Intermediate</span></div>
+          <div class="skill-row"><span class="skill-name">AWS · Git</span><span class="skill-level">Intermediate</span></div>
+          <div class="skill-row"><span class="skill-name">Certification AMF</span><span class="skill-level">Droit bancaire</span></div>
+          <div class="skill-row"><span class="skill-name">Certification Bloomberg ESG Finance</span><span class="skill-level">Finance durable</span></div>
+        </div>
+      </section>
+
+      <!-- DISTINCTIONS -->
+      <section class="cv-section" id="awards">
+        <div class="section-label">Distinctions</div>
+
+        <div class="award">
+          <div class="award-year">2026</div>
+          <div>
+            <div class="award-title">National Winner, Hult Prize France</div>
+            <div class="award-body">Startup Lola · Premier prix national de la compétition d'entrepreneuriat à impact organisée à l'IPAG Business School, Paris</div>
+          </div>
+        </div>
+
+        <div class="award">
+          <div class="award-year">2026</div>
+          <div>
+            <div class="award-title">Best Startup Award, Université Paris 1 Panthéon-Sorbonne</div>
+            <div class="award-body">Startup Lola</div>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- CONTACT -->
+      <section class="cv-section" id="contact">
+        <div class="section-label">Contact</div>
+        <div class="contact-strip">
+          <div class="contact-item">Email : <a href="mailto:amaury.vittmer@gmail.com">amaury.vittmer@gmail.com</a></div>
+          <div class="contact-item">LinkedIn : <a href="https://www.linkedin.com/in/amauryvittmer/" target="_blank">amauryvittmer</a></div>
+          <div class="contact-item">GitHub : <a href="https://github.com/amauryvittmer" target="_blank">amauryvittmer</a></div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+</body>
+</html>

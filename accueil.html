@@ -4,15 +4,14 @@
   ╔══════════════════════════════╗
   ║        LINKS — EDIT HERE     ║
   ╚══════════════════════════════╝
-  Update the values below to change the sidebar links.
 -->
 <script>
   const LINKS = {
-    email:    "mailto:amaury@example.com",
-    linkedin: "https://linkedin.com/in/amauryvittmer",
+    email:    "mailto:amaury.vittmer@gmail.com",
+    linkedin: "https://www.linkedin.com/in/amauryvittmer/",
     github:   "https://github.com/amauryvittmer",
-    cv:       "/cv.pdf",
-    projects: "#projects",
+    projects: "projects.html",
+    cv:       "cv.html",
   };
 </script>
 <head>
@@ -58,8 +57,6 @@
       animation: fadeUp .7s ease forwards;
     }
 
-    header .spacer {}
-
     h1 {
       font-family: 'EB Garamond', serif;
       font-weight: 400;
@@ -85,14 +82,13 @@
     }
     nav a:hover { color: var(--ink); }
     nav a.accent { color: var(--accent); }
+    nav a.accent:hover { color: #3d33a8; }
 
-    .nav-section { margin-top: 20px; }
-    .nav-label {
-      font-size: .65rem;
-      text-transform: uppercase;
-      letter-spacing: .12em;
-      color: var(--rule);
-      margin-bottom: 8px;
+    .nav-divider {
+      width: 24px;
+      height: 1px;
+      background: var(--rule);
+      margin: 10px 0;
     }
 
     main {
@@ -152,19 +148,18 @@
       body { padding: 0 24px; }
       .grid { grid-template-columns: 1fr; }
       aside { display: flex; flex-direction: row; gap: 32px; margin-bottom: 32px; }
-      header .spacer { display: none; }
+      .nav-divider { display: none; }
     }
   </style>
 </head>
 <body>
 
   <header class="grid">
-    <div class="spacer"></div>
+    <div></div>
     <h1>Amaury Vittmer</h1>
   </header>
 
   <div class="grid">
-
     <aside>
       <nav id="nav"></nav>
     </aside>
@@ -187,7 +182,6 @@
         </ul>
       </section>
     </main>
-
   </div>
 
   <script>
@@ -196,8 +190,9 @@
       <a href="${LINKS.email}">Email</a>
       <a href="${LINKS.linkedin}" target="_blank">LinkedIn</a>
       <a href="${LINKS.github}" target="_blank">Github</a>
-      <a href="${LINKS.cv}" target="_blank" class="accent">CV</a>
+      <div class="nav-divider"></div>
       <a href="${LINKS.projects}" class="accent">Projects</a>
+      <a href="${LINKS.cv}" target="_blank" class="accent">CV</a>
     `;
   </script>
 
