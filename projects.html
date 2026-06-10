@@ -173,6 +173,39 @@
       max-width: 480px;
     }
 
+    .project-blocks {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      max-width: 480px;
+      margin-top: 4px;
+    }
+
+    .project-block {
+      display: grid;
+      grid-template-columns: 68px 1fr;
+      gap: 0 14px;
+      align-items: baseline;
+    }
+
+    .block-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: .6rem;
+      font-weight: 400;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+      color: var(--rule);
+      padding-top: 3px;
+      white-space: nowrap;
+    }
+
+    .block-text {
+      font-family: 'EB Garamond', serif;
+      font-size: .95rem;
+      line-height: 1.65;
+      color: var(--muted);
+    }
+
     .project-tags {
       display: flex;
       gap: 6px;
@@ -257,7 +290,6 @@
         <button class="filter-btn active" data-filter="all">All</button>
         <button class="filter-btn" data-filter="research">Research</button>
         <button class="filter-btn" data-filter="software">Software</button>
-        <button class="filter-btn" data-filter="venture">Venture</button>
       </div>
     </aside>
 
@@ -268,73 +300,32 @@
 
         <li class="project-item" data-tags="research software">
           <div>
-            <div class="project-title">CogniTrack — Accessible Cognitive Monitoring</div>
-            <div class="project-desc">A low-barrier digital tool enabling individuals to self-administer cognitive assessments calibrated to early Alzheimer's markers. Designed for daily use with no clinical infrastructure required.</div>
+            <div class="project-title">Early Alzheimer's Detection via Natural Language Processing, BA in Literature and Linguistics Dissertation</div> 
+            <div class="project-desc">Only 54% of Alzheimer's cases are diagnosed in time, I wanted to detect early cognitive decline through spontaneous speech alone. I built a multimodal pipeline combining lexico-syntactic, prosodic, and semantic features on 552 DementiaBank transcriptions, benchmarked against fine-tuned RoBERTa. The model reached F1 macro 0.806, with consistent performance across both "Sick" and "Healthy" classifications.</div>
             <div class="project-tags">
               <span class="tag research">Research</span>
-              <span class="tag">Software</span>
+              <span class="tag">NLP</span>
+              <span class="tag">Python</span>
             </div>
           </div>
           <div class="project-meta">
-            <div class="project-year">2024</div>
-            <a href="#" class="project-link">View →</a>
-          </div>
-        </li>
-
-        <li class="project-item" data-tags="research">
-          <div>
-            <div class="project-title">Neuro-Longitudinal Dataset</div>
-            <div class="project-desc">Compilation and curation of longitudinal cognitive data across aging populations, intended to support reproducible research into neurodegeneration trajectories. Open access.</div>
-            <div class="project-tags">
-              <span class="tag research">Research</span>
-            </div>
-          </div>
-          <div class="project-meta">
-            <div class="project-year">2023</div>
-            <a href="#" class="project-link">View →</a>
+            <div class="project-year">2026</div>
+            <a href="https://github.com/TeaS0710/NLP-project-A_A" target="_blank" class="project-link">View →</a>
           </div>
         </li>
 
         <li class="project-item" data-tags="software">
           <div>
-            <div class="project-title">Adaptive Intervention Engine</div>
-            <div class="project-desc">A personalisation layer translating cognitive assessment outputs into targeted intervention recommendations — dietary, physical, and cognitive — weighted by individual profile data.</div>
+            <div class="project-title">Financial Impact Prediction of Natural Disasters, ENEDIS</div>
+            <div class="project-desc">Storms cost ENEDIS millions annually in unplanned interventions, I wanted to predict financial exposure through historical weather and cost data. I built a regression model on historical weather, past intervention costs, and geographic variables, embedded into a finance/HR dashboard for 1,100 employees. The model was deployed in production and presented at CODIR, and adopted for ongoing regional budget planning.</div>
             <div class="project-tags">
               <span class="tag">Software</span>
+              <span class="tag">Finance</span>
+              <span class="tag">Python</span>
             </div>
           </div>
           <div class="project-meta">
-            <div class="project-year">2023</div>
-            <a href="#" class="project-link">View →</a>
-          </div>
-        </li>
-
-        <li class="project-item" data-tags="venture">
-          <div>
-            <div class="project-title">AlignCap — Impact-Aligned Funding Model</div>
-            <div class="project-desc">An exploration of financial structures that align the incentives of individual users with those of capital providers in the neurohealth space, lowering adoption barriers at scale.</div>
-            <div class="project-tags">
-              <span class="tag">Venture</span>
-            </div>
-          </div>
-          <div class="project-meta">
-            <div class="project-year">2022</div>
-            <a href="#" class="project-link">View →</a>
-          </div>
-        </li>
-
-        <li class="project-item" data-tags="research software">
-          <div>
-            <div class="project-title">MindBridge — Patient Literacy Tool</div>
-            <div class="project-desc">An educational interface translating complex neuroimaging and biomarker reports into plain language summaries for patients and caregivers, reducing cognitive distance between clinician and individual.</div>
-            <div class="project-tags">
-              <span class="tag research">Research</span>
-              <span class="tag">Software</span>
-            </div>
-          </div>
-          <div class="project-meta">
-            <div class="project-year">2022</div>
-            <a href="#" class="project-link">View →</a>
+            <div class="project-year">2026</div>
           </div>
         </li>
 
